@@ -12,7 +12,7 @@ export default function Staging() {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('https://pkm-indexer.railway.app/staging');
+      const response = await axios.get('https://pkm-indexer-production.up.railway.app/staging');
       setFiles(response.data.files);
     } catch (err) {
       setError('Failed to load staging files');
@@ -21,7 +21,7 @@ export default function Staging() {
 
   const handleApprove = async (file) => {
     try {
-      await axios.post('https://pkm-indexer.railway.app/approve', { file });
+      await axios.post('https://pkm-indexer-production.up.railway.app/approve', { file });
       fetchFiles();
     } catch (err) {
       setError('Failed to approve file');
